@@ -1,5 +1,5 @@
 var networkModule = function (_args) {
-
+    alert("Starting!");
     // Constants
     var COLUMNS = 5;
     var ROWS = 7;
@@ -101,7 +101,7 @@ var networkModule = function (_args) {
 
     // Constructor with String[] args...
     command = _args[0];
-    //setMatrix();
+    setMatrix();
     // TODO: Turn into switch, this looks ridiculous
     if (command === "0") {
         printSymbol(SYMBOLS[0]);
@@ -212,7 +212,7 @@ var networkModule = function (_args) {
             }
             printSymbol(state);
             if (!stateChanged) {
-                console.log("Found solution, done!");
+                alert("Solution has been found in " + (i + 1) + " iterations!");
                 break;
             }
             if (i == MAX_NO_OF_ITERATIONS) {
