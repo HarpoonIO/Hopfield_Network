@@ -92,11 +92,11 @@ var networkModule = function (_args) {
     ];
 
     // Instance variables
-    var matrix = [[]];  // ints
-    var state = [];     // ints
-    var newValue;       // int
-    var stateChanged;   // Boolean
-    var command;        // String
+    var matrix = createMatrix();  // ints
+    var state = [];               // ints
+    var newValue;                 // int
+    var stateChanged;             // Boolean
+    var command;                  // String
 
     // Constructor with String[] args...
     command = _args[0];
@@ -139,7 +139,7 @@ var networkModule = function (_args) {
     }
 
     // ------------------------------ functions ------------------------------
-    var setMatrix = function () {
+    function setMatrix() {
 
         for (var i = 0; i < (ROWS * COLUMNS); i++) {
 
@@ -155,7 +155,7 @@ var networkModule = function (_args) {
         }
     };
 
-    var printMatrix = function () {
+    function printMatrix() {
 
         for (var i = 0; i < (ROWS * COLUMNS); i++) {
             for (var j = 0; j < (ROWS * COLUMNS); j++) {
@@ -166,7 +166,7 @@ var networkModule = function (_args) {
         console.log("");
     };
 
-    var printSymbol = function (input) { // Input is int[] input
+    function printSymbol(input) { // Input is int[] input
 
         for (var i = 0; i < ROWS; i++) {
             for (var j = 0; j < COLUMNS; j++) {
@@ -177,7 +177,7 @@ var networkModule = function (_args) {
         console.log();
     };
 
-    var simulate = function (input) { // Input is int[] input
+    function simulate(input) { // Input is int[] input
 
         for (var i = 0; i < (ROWS * COLUMNS); i++) {
             state[i] = input[i];
@@ -195,37 +195,42 @@ var networkModule = function (_args) {
                 for (var k = 0; k < ROWS; k++) {
                     newValue += matrix[j][k] * state[k];
                 }
-                if(newValue > 0){
+                if (newValue > 0) {
                     newValue = 1;
-                }else{
-                    if(newValue < 0){
-                       newValue = -1;
-                    }else{
+                } else {
+                    if (newValue < 0) {
+                        newValue = -1;
+                    } else {
                         newValue = state[j];
                     }
                 }
-                if(newValue != state[j]){
+                if (newValue != state[j]) {
                     stateChanged = true;
                 }
                 state[j] = newValue;
             }
             printSymbol(state);
-            if(!stateChanged){
+            if (!stateChanged) {
                 console.log("Found solution, done!");
                 break;
             }
-            if(i == MAX_NO_OF_ITERATIONS){
-               console.log("Maximum number of iterations has been reached!");
+            if (i == MAX_NO_OF_ITERATIONS) {
+                console.log("Maximum number of iterations has been reached!");
             }
         }
     };
 
-    var foo = function () {
+    function createMatrix() {
         console.log("Called form the Network class!");
+        var bar = new Array(ROWS);
+        for (var i = 0; i < bar.length; i++) {
+            bar[i] = new Array(COLUMNS);
+        }
+        return bar;
     };
 
     return {
-        foo: foo
+        foo: createMatrix
     };
 
 };
