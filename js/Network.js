@@ -222,12 +222,11 @@ var networkModule = function (_args) {
     };
 
     function createMatrix() {
-        console.log("Called form the Network class!");
-        var bar = new Array(ROWS * COLUMNS);
-        for (var i = 0; i < bar.length; i++) {
-            bar[i] = new Array(ROWS * COLUMNS);
+        var temp = new Array(ROWS * COLUMNS);
+        for (var i = 0; i < temp.length; i++) {
+            temp[i] = new Array(ROWS * COLUMNS);
         }
-        return bar;
+        return temp;
     };
 
     return {
