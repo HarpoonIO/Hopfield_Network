@@ -93,6 +93,7 @@ var networkModule = function (_args) {
 
     // Instance variables
     var matrix = createMatrix();  // ints
+    printMatrix();
     var state = [];               // ints
     var newValue;                 // int
     var stateChanged;             // Boolean
@@ -149,7 +150,7 @@ var networkModule = function (_args) {
                     matrix[i][j] += SYMBOLS[k][i] * SYMBOLS[k][j];
                 }
                 if (i == j) {
-                    matrix[i][j] -= NO_OF_SYMBOLS; // TODO: Check whether this is a valid index in 2dArray in js...
+                    matrix[i][j] -= NO_OF_SYMBOLS;
                 }
             }
         }
@@ -222,9 +223,9 @@ var networkModule = function (_args) {
 
     function createMatrix() {
         console.log("Called form the Network class!");
-        var bar = new Array(ROWS);
+        var bar = new Array(ROWS * COLUMNS);
         for (var i = 0; i < bar.length; i++) {
-            bar[i] = new Array(COLUMNS);
+            bar[i] = new Array(ROWS * COLUMNS);
         }
         return bar;
     };
