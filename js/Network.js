@@ -102,41 +102,44 @@ var networkModule = function (_args) {
     // Constructor with String[] args...
     command = _args[0];
     setMatrix();
-    // TODO: Turn into switch, this looks ridiculous
-    if (command === "0") {
-        printSymbol(SYMBOLS[0]);
-        printSymbol(SYMBOLS[1]);
-        printSymbol(SYMBOLS[2]);
-    }
-    if (command === "1") {
-        printMatrix();
-    }
-    if (command === "2") {
-        simulate(SYMBOLS[0]);
-    }
-    if (command === "3") {
-        simulate(SYMBOLS[1]);
-    }
-    if (command === "4") {
-        simulate(SYMBOLS[2]);
-    }
-    if (command === "5") {
-        simulate(TEST_A);
-    }
-    if (command === "6") {
-        simulate(TEST_B);
-    }
-    if (command === "7") {
-        simulate(TEST_C);
-    }
-    if (command === "8") {
-        simulate(TEST_D);
-    }
-    if (command === "9") {
-        simulate(TEST_E);
-    }
-    if (command === "10") {
-        simulate(TEST_F);
+    switch(command){
+        case "0":
+            printSymbol(SYMBOLS[0]);
+            printSymbol(SYMBOLS[1]);
+            printSymbol(SYMBOLS[2]);
+            break;
+        case "1":
+            printMatrix();
+            break;
+        case "2":
+            simulate(SYMBOLS[0]);
+            break;
+        case "3":
+            simulate(SYMBOLS[1]);
+            break;
+        case "4":
+            simulate(SYMBOLS[2]);
+            break;
+        case "5":
+            simulate(TEST_A);
+            break;
+        case "6":
+            simulate(TEST_B);
+            break;
+        case "7":
+            simulate(TEST_C);
+            break;
+        case "8":
+            simulate(TEST_D);
+            break;
+        case "9":
+            simulate(TEST_E);
+            break;
+        case "10":
+            simulate(TEST_F);
+            break;
+        default :
+            alert("Give a command between 0 and 10, all inclusive...")
     }
 
     // ------------------------------ functions ------------------------------
